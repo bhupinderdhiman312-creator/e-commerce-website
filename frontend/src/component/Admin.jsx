@@ -26,7 +26,7 @@ function Admin() {
       formData.append("image", data.image[0]);
 
       const res = await axios.post(
-        "http://localhost:3000/api/admin",
+        "https://e-commerce-website-6yh3.onrender.com/api/admin",
         formData,
         {
           withCredentials: true,

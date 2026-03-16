@@ -15,7 +15,7 @@ function Shop() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/products");
+        const res = await axios.get("https://e-commerce-website-6yh3.onrender.com/api/products");
         setItems(res.data);
       } catch (err) {
         console.error("Error fetching:", err.message);
@@ -56,7 +56,7 @@ function Shop() {
               <img
                 onClick={() => goToProduct(item._id)}
                 className="h-56 w-full object-cover rounded-md cursor-pointer"
-                src={`http://localhost:3000/uploads/${item.image}`}
+                src={`https://e-commerce-website-6yh3.onrender.com/uploads/${item.image}`}
                 alt={item.name}
               />
 

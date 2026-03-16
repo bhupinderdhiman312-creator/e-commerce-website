@@ -31,7 +31,7 @@ function Navbar() {
     try {
 
       await axios.post(
-        "http://localhost:3000/api/logout",
+        "https://e-commerce-website-6yh3.onrender.com/api/logout",
         {},
         { withCredentials: true }
       );
@@ -52,7 +52,7 @@ function Navbar() {
 
     const fetchCart = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/cart");
+        const res = await axios.get("https://e-commerce-website-6yh3.onrender.com/api/cart");
         setItems(res.data);
       } catch (err) {
         console.error(err);
@@ -68,7 +68,7 @@ function Navbar() {
     try {
 
       const res = await axios.delete(
-        `http://localhost:3000/api/cart/${id}`
+        `https://e-commerce-website-6yh3.onrender.com/api/cart/${id}`
       );
 
       setItems((prev) => prev.filter((item) => item._id !== id));
@@ -277,7 +277,7 @@ className="flex justify-between items-center mt-4"
 
 <img
 className="h-16 w-16 rounded-lg"
-src={`http://localhost:3000/uploads/${item.image}`}
+src={`https://e-commerce-website-6yh3.onrender.com/uploads/${item.image}`}
 alt=""
 />
 

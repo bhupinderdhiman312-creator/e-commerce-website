@@ -26,7 +26,7 @@ function Join() {
   const handlejoin = async (data) => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/register",
+        "https://e-commerce-website-6yh3.onrender.com/api/register",
         data
       );
       setMessage(res.data.message);

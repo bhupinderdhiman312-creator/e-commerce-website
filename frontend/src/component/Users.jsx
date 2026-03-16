@@ -9,7 +9,7 @@ function Users() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/showuser");
+        const res = await axios.get("https://e-commerce-website-6yh3.onrender.com/api/showuser");
         setItems(res.data);
       } catch (err) {
         toast.error("Error fetching users");
@@ -22,7 +22,7 @@ function Users() {
   const deleteCartItem = async (id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:3000/api/deleteuser/${id}`
+        `https://e-commerce-website-6yh3.onrender.com/api/deleteuser/${id}`
       );
       setItems((prev) => prev.filter((item) => item._id !== id));
       toast.success(res.data.message);

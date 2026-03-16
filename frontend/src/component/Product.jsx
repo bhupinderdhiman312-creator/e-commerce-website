@@ -16,7 +16,7 @@ function Product() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/products/${id}`);
+        const res = await axios.get(`https://e-commerce-website-6yh3.onrender.com/api/products/${id}`);
         setProduct(res.data);
       } catch (err) {
         console.error("Error fetching product:", err.message);
@@ -29,7 +29,7 @@ function Product() {
 
   const addcart = async (data) => {
     try {
-      await axios.post("http://localhost:3000/api/cart", {
+      await axios.post("https://e-commerce-website-6yh3.onrender.com/api/cart", {
         name: data.name,
         price: data.price,
         image: data.image,
@@ -52,7 +52,7 @@ function Product() {
         viewport={{ once: true }}
       >
         <img
-          src={`http://localhost:3000/uploads/${product.image}`}
+          src={`https://e-commerce-website-6yh3.onrender.com/uploads/${product.image}`}
           alt={product.name}
           className="w-full max-w-md lg:max-w-xl h-auto object-cover rounded-lg shadow-md"
         />

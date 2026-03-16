@@ -10,7 +10,7 @@ function Userorders() {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/orders");
+      const res = await axios.get("https://e-commerce-website-6yh3.onrender.com/api/orders");
       setOrders(res.data);
     } catch (err) {
       console.log(err);
@@ -37,7 +37,7 @@ function Userorders() {
             >
 
               <img
-                src={`http://localhost:3000/uploads/${order.image}`}
+                src={`https://e-commerce-website-6yh3.onrender.com/uploads/${order.image}`}
                 alt="product"
                 className="h-56 sm:h-64 lg:h-72 w-full object-cover rounded-md"
               />

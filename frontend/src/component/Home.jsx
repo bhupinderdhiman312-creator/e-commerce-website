@@ -25,7 +25,7 @@ function Home() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/products");
+        const res = await axios.get("https://e-commerce-website-6yh3.onrender.com/api/products");
         console.log("Frontend received:", res.data);
         setItems(res.data);
       } catch (err) {
@@ -38,7 +38,7 @@ function Home() {
 
   const addcart = async (data) => {
     try {
-      const res = await axios.post("http://localhost:3000/api/cart", {
+      const res = await axios.post("https://e-commerce-website-6yh3.onrender.com/api/cart", {
         name: data.name,
         price: data.price,
         image: data.image,
@@ -163,7 +163,7 @@ className="flex flex-col items-center cursor-pointer p-4 w-[90%] sm:w-[45%] md:w
 <img
 onClick={() => goToProduct(item._id)}
 className="w-full h-[250px] object-cover"
-src={`http://localhost:3000/uploads/${item.image}`}
+src={`https://e-commerce-website-6yh3.onrender.com/uploads/${item.image}`}
 alt={item.name}
 />
 

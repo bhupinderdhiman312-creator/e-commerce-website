@@ -12,7 +12,7 @@ function Deleteproduct() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/products");
+        const res = await axios.get("https://e-commerce-website-6yh3.onrender.com/api/products");
         setItems(res.data);
       } catch (err) {
         toast.error("Error fetching:", err.message);
@@ -25,7 +25,7 @@ function Deleteproduct() {
   const deleteCartItem = async (id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:3000/api/deleteproduct/${id}`
+        `https://e-commerce-website-6yh3.onrender.com/api/deleteproduct/${id}`
       );
       setItems((prev) => prev.filter((item) => item._id !== id));
       toast.success(res.data.message);
@@ -50,7 +50,7 @@ function Deleteproduct() {
           >
             <img
               className="h-52 w-full md:h-60 lg:h-64 object-cover rounded"
-              src={`http://localhost:3000/uploads/${item.image}`}
+              src={`https://e-commerce-website-6yh3.onrender.com/uploads/${item.image}`}
               alt={item.name}
             />
 

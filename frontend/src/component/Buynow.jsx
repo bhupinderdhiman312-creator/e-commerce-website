@@ -24,7 +24,7 @@ function Buynow() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/products/${id}`);
+        const res = await axios.get(`https://e-commerce-website-6yh3.onrender.com/api/products/${id}`);
         setproductitem(res.data);
       } catch (err) {
         console.error("Error fetching product:", err.message);
@@ -35,7 +35,7 @@ function Buynow() {
 
   const onsubmit = async (data) => {
     try {
-      const res = await axios.post("http://localhost:3000/api/buynow/add", {
+      const res = await axios.post("https://e-commerce-website-6yh3.onrender.com/api/buynow/add", {
         productname: productitem.name,
         price: productitem.price,
         image: productitem.image,
@@ -80,7 +80,7 @@ function Buynow() {
                 className="flex flex-col sm:flex-row items-center justify-center gap-6"
               >
                 <img
-                  src={`http://localhost:3000/uploads/${productitem.image}`}
+                  src={`https://e-commerce-website-6yh3.onrender.com/uploads/${productitem.image}`}
                   alt={productitem.name}
                   className="h-24 w-24 md:h-28 md:w-28 object-cover rounded mb-2"
                 />
