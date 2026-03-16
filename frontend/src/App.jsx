@@ -4,12 +4,12 @@ import Shop from "./component/Shop.jsx";
 import Navbar from "./component/Navbar.jsx";
 import Footer from "./component/Footer.jsx";
 import Join from "./component/Join.jsx";
-import Arrives from "./component/arrives.jsx";
-import Greeting from "./component/Greeting.jsx";
-import NoteBooks from "./component/NoteBooks.jsx";
-import Pencils from "./component/Pencils.jsx";
-import Wrapping from "./component/Wrapping.jsx";
-import Limited from "./component/Limited.jsx";
+// import Arrives from "./component/arrives.jsx";
+// import Greeting from "./component/Greeting.jsx";
+// import NoteBooks from "./component/NoteBooks.jsx";
+// import Pencils from "./component/Pencils.jsx";
+// import Wrapping from "./component/Wrapping.jsx";
+// import Limited from "./component/Limited.jsx";
 import Login from "./component/login.jsx";
 import Product from "./component/product.jsx";
 import Admin from "./component/Admin.jsx";
@@ -83,61 +83,63 @@ const removeFromCart = (index) => {
        <div>        
        <Login/>
        </div>
-     }
-     ,{
-       path:"/arrives",
-       element:
-       <div>        
-        {/* <Navbar/> */}
-        <Arrives/>
-        <Footer/>
+     },
+    //  ,{
+    //    path:"/arrives",
+    //    element:
+    //    <div>        
+    //     {/* <Navbar/> */}
+    //     <Arrives/>
+    //     <Footer/>
 
-       </div>
-     },{
-       path:"/Greeting",
-       element:
-       <div>        
-        {/* <Navbar/> */}
-        <Greeting/>
-        <Footer/>
+    //    </div>
+    //  },{
+    //    path:"/Greeting",
+    //    element:
+    //    <div>        
+    //     {/* <Navbar/> */}
+    //     <Greeting/>
+    //     <Footer/>
 
-       </div>
-     },{
-       path:"/Notebooks",
-       element:
-       <div>        
-        {/* <Navbar/> */}
-        <NoteBooks/>
-        <Footer/>
+    //    </div>
+    //  },{
+    //    path:"/Notebooks",
+    //    element:
+    //    <div>        
+    //     {/* <Navbar/> */}
+    //     <NoteBooks/>
+    //     <Footer/>
 
-       </div>
-     },{
-       path:"/Pencils",
-       element:
-       <div>        
-        {/* <Navbar/> */}
-        <Pencils/>
-        <Footer/>
+    //    </div>
+    //  },{
+    //    path:"/Pencils",
+    //    element:
+    //    <div>        
+    //     {/* <Navbar/> */}
+    //     <Pencils/>
+    //     <Footer/>
 
-       </div>
-     },{
-       path:"/Wrapping",
-       element:
-       <div>        
-        {/* <Navbar/> */}
-        <Wrapping/>
-        <Footer/>
+    //    </div>
+    //  },{
+    //    path:"/Wrapping",
+    //    element:
+    //    <div>        
+    //     {/* <Navbar/> */}
+    //     <Wrapping/>
+    //     <Footer/>
 
-       </div>
-     },{
-       path:"/Limited",
-       element:
-       <div>        
-        {/* <Navbar/> */}
-        <Limited/>
-        <Footer/>
-       </div>
-     },{
+    //    </div>
+    //  },
+    //  {
+    //    path:"/Limited",
+    //    element:
+    //    <div>        
+    //     {/* <Navbar/> */}
+    //     <Limited/>
+    //     <Footer/>
+    //    </div>
+    //  },
+     {
        path:"/products/:id",
        element:
        <div>        
