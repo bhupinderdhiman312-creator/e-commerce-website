@@ -10,7 +10,7 @@ import Join from "./component/Join.jsx";
 // import Pencils from "./component/Pencils.jsx";
 // import Wrapping from "./component/Wrapping.jsx";
 // import Limited from "./component/Limited.jsx";
-import Login from "../component/Login.jsx";
+import Login from "./component/login.jsx";
 import Product from "./component/product.jsx";
 import Admin from "./component/Admin.jsx";
 import { useState } from "react";
