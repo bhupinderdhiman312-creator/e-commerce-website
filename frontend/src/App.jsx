@@ -4,7 +4,7 @@ import Shop from "./component/Shop.jsx";
 import Navbar from "./component/Navbar.jsx";
 import Footer from "./component/Footer.jsx";
 import Join from "./component/Join.jsx";
-// import Arrives from "./component/arrives.jsx";
+// import Arrives from "./component/Arrives.jsx";
 // import Greeting from "./component/Greeting.jsx";
 // import NoteBooks from "./component/NoteBooks.jsx";
 // import Pencils from "./component/Pencils.jsx";
@@ -24,9 +24,8 @@ import Adminlayout from "./component/Adminlayout.jsx";
 import Userorders from "./component/Userorder.jsx";
 import Users from "./component/Users.jsx";
 
-import React from 'react'
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
 
@@ -36,122 +35,79 @@ function App() {
     setCart((prevCart) => [...prevCart, items]);
   };
 
-const removeFromCart = (index) => {
+  const removeFromCart = (index) => {
     setCart((prevCart) => prevCart.filter((_, i) => i !== index));
   };
 
-  const router = createBrowserRouter(
-    [{
-       path:"/",
-       element:
-       <div>
-        <Navbar cart={cart} removeFromCart={removeFromCart}/>
-        <Home addToCart={addToCart}/>
-        <Footer/>
-       </div>
-     },{
-       path:"/About",
-       element:
-       <div>
-        <Navbar cart={cart} removeFromCart={removeFromCart}/>
-        <About/>
-        <Footer/>
-       </div>
-     },{
-       path:"/Navbar",
-       element:
-       <div>
-        <Navbar cart={cart} removeFromCart={removeFromCart}/>
-       </div>
-     },{
-       path:"/Shop",
-       element:
-       <div>
-        <Navbar cart={cart} removeFromCart={removeFromCart}/>
-        <Shop/>
-        <Footer/>
-       </div>
-     },{
-       path:"/join",
-       element:
-       <div>        
-        <Join/>
-       </div>
-     },{
-       path:"/login",
-       element:
-       <div>        
-       <Login/>
-       </div>
-     },
-    //  ,{
-    //    path:"/arrives",
-    //    element:
-    //    <div>        
-    //     {/* <Navbar/> */}
-    //     <Arrives/>
-    //     <Footer/>
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <div>
+          <Navbar cart={cart} removeFromCart={removeFromCart} />
+          <Home addToCart={addToCart} />
+          <Footer />
+        </div>
+      ),
+    },
+    {
+      path: "/About",
+      element: (
+        <div>
+          <Navbar cart={cart} removeFromCart={removeFromCart} />
+          <About />
+          <Footer />
+        </div>
+      ),
+    },
+    {
+      path: "/Navbar",
+      element: (
+        <div>
+          <Navbar cart={cart} removeFromCart={removeFromCart} />
+        </div>
+      ),
+    },
+    {
+      path: "/Shop",
+      element: (
+        <div>
+          <Navbar cart={cart} removeFromCart={removeFromCart} />
+          <Shop />
+          <Footer />
+        </div>
+      ),
+    },
+    {
+      path: "/join",
+      element: (
+        <div>
+          <Join />
+        </div>
+      ),
+    },
+    {
+      path: "/login",
+      element: (
+        <div>
+          <Login />
+        </div>
+      ),
+    },
 
-    //    </div>
-    //  },{
-    //    path:"/Greeting",
-    //    element:
-    //    <div>        
-    //     {/* <Navbar/> */}
-    //     <Greeting/>
-    //     <Footer/>
+    {
+      path: "/products/:id",
+      element: (
+        <div>
+          <Navbar />
+          <Product />
+        </div>
+      ),
+    },
 
-    //    </div>
-    //  },{
-    //    path:"/Notebooks",
-    //    element:
-    //    <div>        
-    //     {/* <Navbar/> */}
-    //     <NoteBooks/>
-    //     <Footer/>
-
-    //    </div>
-    //  },{
-    //    path:"/Pencils",
-    //    element:
-    //    <div>        
-    //     {/* <Navbar/> */}
-    //     <Pencils/>
-    //     <Footer/>
-
-    //    </div>
-    //  },{
-    //    path:"/Wrapping",
-    //    element:
-    //    <div>        
-    //     {/* <Navbar/> */}
-    //     <Wrapping/>
-    //     <Footer/>
-
-    //    </div>
-    //  },
-    //  {
-    //    path:"/Limited",
-    //    element:
-    //    <div>        
-    //     {/* <Navbar/> */}
-    //     <Limited/>
-    //     <Footer/>
-    //    </div>
-    //  },
-     {
-       path:"/products/:id",
-       element:
-       <div>        
-        <Navbar/>
-        <Product/>
-        {/* <Footer/> */}
-       </div>
-     },
-     {
+    {
       path: "/Admin",
       element: (
-        // <AdminProtectedRoute>
         <>
           <Navbar />
           <Adminlayout />
@@ -159,57 +115,54 @@ const removeFromCart = (index) => {
         </>
       ),
       children: [
-         { path: "User", element: <Users /> },
+        { path: "User", element: <Users /> },
         { path: "addproduct", element: <Admin /> },
         { path: "deleteproduct", element: <Deleteproduct /> },
-         { path: "orders", element: <Orders /> },
+        { path: "orders", element: <Orders /> },
       ],
     },
-     {
-      path:"/buynow/:id",
-      element:
-      <div>
-      <Buynow/>
-      </div>
-     },{
-      path:"/Orders",
-      element:
-      <div>
-      <Orders/>
-      </div>
-     },{
-      path:"/deleteproduct",
-      element:
-      <div>
-      <Deleteproduct/>
-      </div>
-     },{
-      path:"/userorders",
-      element:
-      <div>
-      <Userorders/>
-      </div>
-     },
-    //  {
-    //   path:"/users",
-    //   element:
-    //   <div>
-    //   <Users/>
-    //   </div>
-    //  }
 
-    ]
-  )
+    {
+      path: "/buynow/:id",
+      element: (
+        <div>
+          <Buynow />
+        </div>
+      ),
+    },
+    {
+      path: "/Orders",
+      element: (
+        <div>
+          <Orders />
+        </div>
+      ),
+    },
+    {
+      path: "/deleteproduct",
+      element: (
+        <div>
+          <Deleteproduct />
+        </div>
+      ),
+    },
+    {
+      path: "/userorders",
+      element: (
+        <div>
+          <Userorders />
+        </div>
+      ),
+    },
+  ]);
 
   return (
     <div>
-         <RouterProvider router={router}/>
-         <Toaster
-            position="top-center"
-            reverseOrder={false} />
-           <ToastContainer position="top-center" />
+      <RouterProvider router={router} />
+      <Toaster position="top-center" reverseOrder={false} />
+      <ToastContainer position="top-center" />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
