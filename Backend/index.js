@@ -11,7 +11,7 @@ const conntdb = require("./config/db.js")
 app.use("/uploads",express.static("uploads"))
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://e-commerce-website-ochre-psi.vercel.app"],
     credentials: true
 }));
 
