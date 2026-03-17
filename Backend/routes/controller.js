@@ -40,23 +40,16 @@ router.post("/register", async (req, res) => {
         const hashPassword = await bcrypt.hash(password, 10)
         const newUser = new User({ name, email, password: hashPassword })
         await newUser.save()
-const token = jwt.sign(
-      { id: newUser._id, role: newUser.role, name: newUser.name },
-      process.env.Key,
-      { expiresIn: "1h" },
-    );
-
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: true,
-      sameSite: "none",
+ const token = jwt.sign({ id: newUser._id,role: newUser.role, name:newUser.name}, process.env.key, {
+        expiresIn: "1h",
     });
-
-    res.json({
-      message: "Register succesfully",
-      token,
-      role: newUser.role,
-    });    } catch (error) {
+        res.cookie("token", token,{
+          httpOnly:true,
+          secure:true,
+          sameSite:"none",
+        })
+        // console.log(token)
+        res.status(200).json({ message: "Login Seccessfully" , token, role:newUser.role})    } catch (error) {
         res.status(500).json({
             message: error.message
         })
