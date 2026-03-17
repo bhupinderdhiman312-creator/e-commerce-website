@@ -26,6 +26,7 @@ import Users from "./component/Users.jsx";
 
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AdminProtectedRoute from "./component/Adminprotect.jsx";
 
 function App() {
 
@@ -108,11 +109,14 @@ function App() {
     {
       path: "/Admin",
       element: (
-        <>
+        <AdminProtectedRoute>
+            <>
           <Navbar />
           <Adminlayout />
           <Footer />
         </>
+        </AdminProtectedRoute>
+      
       ),
       children: [
         { path: "User", element: <Users /> },
