@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { User, ShoppingCart, Trash, Menu } from "lucide-react"
+import { User, ShoppingCart, Trash, Menu } from "lucide-react";
 import logo from "../assets/logo.jpg";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -11,7 +11,6 @@ import { jwtDecode } from "jwt-decode";
 
 function Navbar() {
   const [showImage, setShowImage] = useState(false);
-  const [mobileMenu, setMobileMenu] = useState(false); // 👈 NEW
   const token = localStorage.getItem("token");
   let userName = null;
 
@@ -73,7 +72,7 @@ function Navbar() {
     <>
       <ToastContainer position="top-center" />
 
-      <div className='w-full flex flex-row items-center justify-between bg-gray-300 shadow-lg px-3 sm:px-6 py-2 gap-4 relative'>
+      <div className='w-full flex flex-row items-center justify-between bg-gray-300 shadow-lg px-3 sm:px-6 py-2 gap-4'>
 
         {/* LEFT */}
         <div className='flex items-center gap-4'>
@@ -100,6 +99,22 @@ function Navbar() {
             )}
           </div>
 
+          {/* ✅ MOBILE MENU (3 line) */}
+          <div className="dropdown sm:hidden">
+            <label tabIndex={0} className="btn btn-ghost">
+              <Menu />
+            </label>
+
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-40"
+            >
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/About">About</Link></li>
+              <li><Link to="/Shop">Shop</Link></li>
+            </ul>
+          </div>
+
           {/* DESKTOP MENU */}
           <div className='hidden sm:flex gap-4 text-sm sm:text-base font-semibold'>
             <Link to="/" className='hover:text-blue-600 transition duration-100 font-semibold'> Home </Link>
@@ -107,16 +122,9 @@ function Navbar() {
             <Link to="/Shop" className='hover:text-blue-600 transition duration-100 font-semibold'> Shop </Link>
           </div>
 
-          {/* MOBILE MENU BUTTON */}
-          <div className="sm:hidden">
-            <button onClick={() => setMobileMenu(!mobileMenu)}>
-              <Menu />
-            </button>
-          </div>
-
         </div>
 
-        {/* RIGHT */}
+        {/* RIGHT (UNCHANGED) */}
         <div className='flex items-center gap-3 sm:gap-6'>
 
           <details className="dropdown">
@@ -136,10 +144,7 @@ function Navbar() {
 
               {localStorage.getItem("token") && (
                 <li>
-                  <button
-                    onClick={handlelogout}
-                    className="flex items-center gap-2"
-                  >
+                  <button onClick={handlelogout} className="flex items-center gap-2">
                     <User /> LOGOUT
                   </button>
                 </li>
@@ -183,20 +188,16 @@ function Navbar() {
             </div>
 
             <div className="drawer-side">
-              <label htmlFor="my-drawer-5" aria-label="close sidebar" className="drawer-overlay"></label>
+              <label htmlFor="my-drawer-5" className="drawer-overlay"></label>
 
               <ul className="menu bg-base-200 min-h-full w-72 sm:w-96 p-4">
-
                 {items.length === 0 ? (
                   <li className="text-black text-xl text-center">
                     No items in cart
                   </li>
                 ) : (
                   items.map((item) => (
-                    <div
-                      className="w-full text-black flex mt-4 justify-between gap-3"
-                      key={item._id}
-                    >
+                    <div key={item._id} className="w-full text-black flex mt-4 justify-between gap-3">
                       <div className="flex items-center gap-3">
                         <img
                           className="h-16 w-16 sm:h-20 sm:w-20 rounded-xl"
@@ -210,31 +211,17 @@ function Navbar() {
                         </div>
                       </div>
 
-                      <button
-                        onClick={() => deleteCartItem(item._id)}
-                        className="p-2"
-                      >
-                        <Trash size={18} className="cursor-pointer" />
+                      <button onClick={() => deleteCartItem(item._id)} className="p-2">
+                        <Trash size={18} />
                       </button>
                     </div>
                   ))
                 )}
-
               </ul>
             </div>
           </div>
 
         </div>
-
-        {/* MOBILE DROPDOWN MENU */}
-        {mobileMenu && (
-          <div className="absolute top-full left-0 w-full bg-gray-200 flex flex-col items-center gap-4 py-4 sm:hidden">
-            <Link to="/" onClick={()=>setMobileMenu(false)}>Home</Link>
-            <Link to="/About" onClick={()=>setMobileMenu(false)}>About</Link>
-            <Link to="/Shop" onClick={()=>setMobileMenu(false)}>Shop</Link>
-          </div>
-        )}
-
       </div>
     </>
   );
