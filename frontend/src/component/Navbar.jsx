@@ -77,12 +77,12 @@ function Navbar() {
         {/* LEFT */}
         <div className='flex items-center gap-4'>
 
-          <div className='flex items-center'>
+          <div className='flex items-center ml-[30px]'>
             <img
               onClick={() => setShowImage(true)}
               src={logo}
               alt=""
-              className='h-10 w-10 rounded-full cursor-pointer'
+              className='h-12 w-12 rounded-full cursor-pointer'
             />
 
             {showImage && (
@@ -116,7 +116,7 @@ function Navbar() {
           </div>
 
           {/* DESKTOP MENU */}
-          <div className='hidden sm:flex gap-4 text-sm sm:text-base font-semibold'>
+          <div className='hidden sm:flex gap-4 text-sm sm:text-base font-semibold ml-[80px]'>
             <Link to="/" className='hover:text-blue-600 transition duration-100 font-semibold'> Home </Link>
             <Link to="/About" className='hover:text-blue-600 transition duration-100 font-semibold'> About </Link>
             <Link to="/Shop" className='hover:text-blue-600 transition duration-100 font-semibold'> Shop </Link>
