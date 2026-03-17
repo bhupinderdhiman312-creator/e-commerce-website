@@ -38,6 +38,7 @@ function Navbar() {
 
       localStorage.removeItem("token");
       localStorage.removeItem("role");
+      setIsLoggedIn(false);
 
       toast.success("Log Out Successfully ✅");
 
