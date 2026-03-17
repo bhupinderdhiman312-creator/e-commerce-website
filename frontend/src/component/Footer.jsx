@@ -1,6 +1,6 @@
 import React from 'react'
 import Insta from "../assets/Insta.jpg"
-import link from "../assets/link.jpg"
+import Linkdin from "../assets/Link.jpg"
 import Msg from "../assets/Msg.jpg"
 import { motion } from 'framer-motion'
 
@@ -28,7 +28,7 @@ function Footer() {
             className='flex justify-center gap-3 mt-3'
           >
             <img src={Insta} alt="" className='h-8 w-8 md:h-10 md:w-10 rounded-2xl' />
-            <img src={link} alt="" className='h-8 w-8 md:h-10 md:w-10 rounded-2xl' />
+            <img src={Linkdin} alt="" className='h-8 w-8 md:h-10 md:w-10 rounded-2xl' />
             <img src={Msg} alt="" className='h-8 w-8 md:h-10 md:w-10 rounded-2xl' />
           </motion.div>
 
