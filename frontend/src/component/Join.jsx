@@ -29,6 +29,11 @@ function Join() {
         "https://e-commerce-website-6yh3.onrender.com/api/register",
         data
       );
+       const role = res.data.role;
+      const token = res.data.token;
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("role", role);
       setMessage(res.data.message);
       toast.success("Register Successfully ✅");
       reset();
