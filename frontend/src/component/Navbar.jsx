@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { User, ShoppingCart, Trash } from "lucide-react"
+import { User, ShoppingCart, Trash, Menu } from "lucide-react"
 import logo from "../assets/logo.jpg";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -11,6 +11,7 @@ import { jwtDecode } from "jwt-decode";
 
 function Navbar() {
   const [showImage, setShowImage] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false); // 👈 NEW
   const token = localStorage.getItem("token");
   let userName = null;
 
@@ -72,7 +73,7 @@ function Navbar() {
     <>
       <ToastContainer position="top-center" />
 
-      <div className='w-full flex flex-row items-center justify-between bg-gray-300 shadow-lg px-3 sm:px-6 py-2 gap-4'>
+      <div className='w-full flex flex-row items-center justify-between bg-gray-300 shadow-lg px-3 sm:px-6 py-2 gap-4 relative'>
 
         {/* LEFT */}
         <div className='flex items-center gap-4'>
@@ -99,10 +100,18 @@ function Navbar() {
             )}
           </div>
 
-          <div className='flex gap-4 text-sm sm:text-base font-semibold'>
+          {/* DESKTOP MENU */}
+          <div className='hidden sm:flex gap-4 text-sm sm:text-base font-semibold'>
             <Link to="/" className='hover:text-blue-600 transition duration-100 font-semibold'> Home </Link>
             <Link to="/About" className='hover:text-blue-600 transition duration-100 font-semibold'> About </Link>
             <Link to="/Shop" className='hover:text-blue-600 transition duration-100 font-semibold'> Shop </Link>
+          </div>
+
+          {/* MOBILE MENU BUTTON */}
+          <div className="sm:hidden">
+            <button onClick={() => setMobileMenu(!mobileMenu)}>
+              <Menu />
+            </button>
           </div>
 
         </div>
@@ -216,6 +225,16 @@ function Navbar() {
           </div>
 
         </div>
+
+        {/* MOBILE DROPDOWN MENU */}
+        {mobileMenu && (
+          <div className="absolute top-full left-0 w-full bg-gray-200 flex flex-col items-center gap-4 py-4 sm:hidden">
+            <Link to="/" onClick={()=>setMobileMenu(false)}>Home</Link>
+            <Link to="/About" onClick={()=>setMobileMenu(false)}>About</Link>
+            <Link to="/Shop" onClick={()=>setMobileMenu(false)}>Shop</Link>
+          </div>
+        )}
+
       </div>
     </>
   );
