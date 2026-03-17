@@ -72,10 +72,10 @@ function Navbar() {
     <>
       <ToastContainer position="top-center" />
 
-      <div className='w-full flex flex-col sm:flex-row items-center bg-gray-300 shadow-lg px-3 sm:px-6 py-2 gap-3 sm:gap-0'>
+      <div className='w-full flex flex-row items-center justify-between bg-gray-300 shadow-lg px-3 sm:px-6 py-2 gap-4'>
 
         {/* LEFT */}
-        <div className='flex w-full sm:w-auto justify-between sm:justify-start items-center gap-4'>
+        <div className='flex items-center gap-4'>
 
           <div className='flex items-center'>
             <img
@@ -99,19 +99,12 @@ function Navbar() {
             )}
           </div>
 
-          {/* MOBILE NAV */}
-          <div className='flex sm:hidden gap-4 text-sm font-semibold'>
-            <Link to="/" className='hover:text-blue-600'> Home </Link>
-            <Link to="/About" className='hover:text-blue-600'> About </Link>
-            <Link to="/Shop" className='hover:text-blue-600'> Shop </Link>
+          <div className='flex gap-4 text-sm sm:text-base font-semibold'>
+            <Link to="/" className='hover:text-blue-600 transition duration-100 font-semibold'> Home </Link>
+            <Link to="/About" className='hover:text-blue-600 transition duration-100 font-semibold'> About </Link>
+            <Link to="/Shop" className='hover:text-blue-600 transition duration-100 font-semibold'> Shop </Link>
           </div>
-        </div>
 
-        {/* DESKTOP NAV */}
-        <div className='hidden sm:flex flex-1 justify-center gap-8 font-semibold'>
-          <Link to="/" className='hover:text-blue-600 transition duration-100 font-semibold'> Home </Link>
-          <Link to="/About" className='hover:text-blue-600 transition duration-100 font-semibold'> About </Link>
-          <Link to="/Shop" className='hover:text-blue-600 transition duration-100 font-semibold'> Shop </Link>
         </div>
 
         {/* RIGHT */}
