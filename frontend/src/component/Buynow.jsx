@@ -43,7 +43,10 @@ function Buynow() {
         email: data.email,
         phone: data.phone,
         address: data.address,
-      });
+      },{
+       withCredentials: true
+      }
+    );
 
       toast.success("Order Placed Successfully ✅");
 

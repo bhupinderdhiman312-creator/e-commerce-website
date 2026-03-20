@@ -9,7 +9,9 @@ console.log("Token:", req.cookies?.token);
 
   try {
     const decoded = jwt.verify(token, process.env.key);
-    req.user = decoded;
+     req.user = decoded;
+     req.userId = decoded.id;
+     req.role = decoded.role;
     next();
   } catch (err) {
     console.log(err.message);

@@ -14,6 +14,8 @@ const dotenv = require("dotenv")
 dotenv.config();
 
 const { authMiddleware ,checkAdmin} = require("../middlware/auth.js");
+// const { authMiddleware } = require("../middlware/auth.js");
+
 
 const Order = require("../models/buynow.js");
 
@@ -175,6 +177,7 @@ router.post("/buynow/add", async (req, res) => {
     const { productname, customername, price, email, phone, address, state, image } = req.body;
 
     const newOrder = new Order({
+      userId: req.userId,
       productname,
       customername,
       price,
@@ -195,10 +198,24 @@ router.post("/buynow/add", async (req, res) => {
 });
 
 router.get("/buynow", async (req, res) => {
-  try {
-    const orders = await Order.find();
+try {
+    if (!req.userId) {
+      return res.status(401).json({ message: "User not authenticated" });
+    }
+
+    let orders;
+
+    if (req.role === "admin") {
+      // Admin sees all orders
+      orders = await Order.find();
+    } else {
+      // Normal user sees only their orders
+      orders = await Order.find({ userId: req.userId });
+    }
+
     res.status(200).json(orders);
   } catch (err) {
+    console.error(err.message);
     res.status(500).json({ message: err.message });
   }
 });

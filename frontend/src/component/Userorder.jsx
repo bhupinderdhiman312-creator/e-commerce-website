@@ -10,7 +10,7 @@ function Userorders() {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("https://e-commerce-website-6yh3.onrender.com/api/orders");
+      const res = await axios.get("https://e-commerce-website-6yh3.onrender.com/api/orders", { withCredentials: true});
       setOrders(res.data);
     } catch (err) {
       console.log(err);

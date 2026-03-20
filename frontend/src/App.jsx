@@ -23,6 +23,7 @@ import Deleteproduct from "./component/Deleteproduct.jsx";
 import Adminlayout from "./component/Adminlayout.jsx";
 import Userorders from "./component/Userorder.jsx";
 import Users from "./component/Users.jsx";
+import Userprotectrouter from "./component/Userprotectrouter.jsx";
 
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -54,11 +55,13 @@ function App() {
     {
       path: "/About",
       element: (
+        <Userprotectrouter>
         <div>
           <Navbar cart={cart} removeFromCart={removeFromCart} />
           <About />
           <Footer />
         </div>
+        </Userprotectrouter>
       ),
     },
     {
@@ -72,11 +75,13 @@ function App() {
     {
       path: "/Shop",
       element: (
+        <Userprotectrouter>
         <div>
           <Navbar cart={cart} removeFromCart={removeFromCart} />
           <Shop />
           <Footer />
         </div>
+        </Userprotectrouter>
       ),
     },
     {
@@ -99,10 +104,12 @@ function App() {
     {
       path: "/products/:id",
       element: (
+        <Userprotectrouter>
         <div>
           <Navbar />
           <Product />
         </div>
+        </Userprotectrouter>
       ),
     },
 
