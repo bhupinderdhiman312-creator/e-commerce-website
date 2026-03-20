@@ -46,7 +46,7 @@ router.post("/register", async (req, res) => {
         res.cookie("token", token,{
           httpOnly:true,
           secure:true,
-          sameSite:"none",
+          sameSite:"None",
         })
         // console.log(token)
         res.status(200).json({ message: "Login Seccessfully" , token, role:newUser.role})    } catch (error) {
@@ -77,7 +77,7 @@ router.post("/login", async (req, res) => {
         res.cookie("token", token,{
           httpOnly:true,
           secure:true,
-          sameSite:"none",
+          sameSite:"None",
         })
         // console.log(token)
         res.status(200).json({ message: "Login Seccessfully" , token, role:newUser.role})
@@ -130,7 +130,7 @@ router.post("/logout", async (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
     secure: true,   // true if HTTPS
-    sameSite: "none", // must match login
+    sameSite: "None", // must match login
   });
   res.json({ message: "Logged out successfully" });
 });
