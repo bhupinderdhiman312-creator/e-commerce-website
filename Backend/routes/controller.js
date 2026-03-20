@@ -167,7 +167,7 @@ router.delete("/cart/:id", async (req, res) => {
   }
 });
 
-router.post("/buynow/add", async (req, res) => {
+router.post("/buynow/add",authMiddleware, async (req, res) => {
   try {
 
     console.log("BODY:", req.body);
@@ -204,7 +204,7 @@ router.post("/buynow/add", async (req, res) => {
 //   }
 // });
 
-router.get("/orders", async (req, res) => {
+router.get("/orders",authMiddleware, async (req, res) => {
    try {
     if (!req.userId) {
       return res.status(401).json({ message: "User not authenticated" });
