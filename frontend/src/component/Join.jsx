@@ -27,7 +27,7 @@ function Join() {
     try {
       const res = await axios.post(
         "https://e-commerce-website-6yh3.onrender.com/api/register",
-        data
+        data,{withCredentials: true}
       );
        const role = res.data.role;
       const token = res.data.token;
