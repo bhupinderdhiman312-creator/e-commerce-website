@@ -171,6 +171,8 @@ router.post("/buynow/add",authMiddleware, async (req, res) => {
   try {
 
     console.log("BODY:", req.body);
+    console.log(req.userId);
+    
 
     const { productname, customername, price, email, phone, address, state, image } = req.body;
 
