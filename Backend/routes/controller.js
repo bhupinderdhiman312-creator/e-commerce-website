@@ -14,8 +14,6 @@ const dotenv = require("dotenv")
 dotenv.config();
 
 const { authMiddleware ,checkAdmin} = require("../middlware/auth.js");
-// const { authMiddleware } = require("../middlware/auth.js");
-
 
 const Order = require("../models/buynow.js");
 
@@ -198,7 +196,16 @@ router.post("/buynow/add", async (req, res) => {
 });
 
 router.get("/buynow", async (req, res) => {
-try {
+  try {
+    const orders = await Order.find();
+    res.status(200).json(orders);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+router.get("/orders", async (req, res) => {
+   try {
     if (!req.userId) {
       return res.status(401).json({ message: "User not authenticated" });
     }
@@ -216,15 +223,6 @@ try {
     res.status(200).json(orders);
   } catch (err) {
     console.error(err.message);
-    res.status(500).json({ message: err.message });
-  }
-});
-
-router.get("/orders", async (req, res) => {
-  try {
-    const orders = await Order.find().sort({ createdAt: -1 });
-    res.status(200).json(orders);
-  } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
