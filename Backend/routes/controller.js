@@ -15,7 +15,9 @@ dotenv.config();
 
 const { authMiddleware ,checkAdmin} = require("../middlware/auth.js");
 
-const Order = require("../models/order.js");
+const Order = require("../models/buynow.js");
+
+
 
 // const Product = require("../models/Product");
 
